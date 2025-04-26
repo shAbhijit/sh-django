@@ -14,8 +14,22 @@ This is a Django-based project with Docker support for development and productio
 
 ## Setup
 ```bash
-docker-compose run --rm app sh -c "flake8"
+# Create Django App
 docker-compose run --rm app sh -c "django-admin startproject app ."
+
+# Run Tests
+docker-compose run --rm app sh -c "python manage.py test"
+
+# Run Linter
+docker-compose run --rm app sh -c "flake8"
+
+# TO create new module
+docker-compose run --rm app sh -c "python manage.py startapp core"
+
+# DB
+docker-compose run --rm app sh -c "python manage.py wait_for_db"
+
+# Run App
 docker-compose up
 ```
 
