@@ -5,7 +5,6 @@ ENV PYTHONUNBUFFERED 1
 
 COPY ./requirements.txt /tmp/requirements.txt
 COPY ./requirements.dev.txt /tmp/requirements.dev.txt
-COPY ./.flake8 /app/.flake8
 COPY ./app /app
 WORKDIR /app
 EXPOSE 8000
@@ -16,6 +15,7 @@ RUN python -m venv /py && \
     apk add --update --no-cache postgresql-client && \
     apk add --update --no-cache --virtual .tmp-build-deps \
         build-base musl-dev postgresql-dev && \
+    /py/bin/pip install django-extensions && \
     /py/bin/pip install -r /tmp/requirements.txt && \
     if [ "$DEV" = "true" ]; \
         then /py/bin/pip install -r /tmp/requirements.dev.txt ; \

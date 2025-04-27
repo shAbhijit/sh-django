@@ -44,6 +44,7 @@ coverage.xml
 
 # Git
 .git
+.gitignore
 
 # System and IDE-specific files
 machineid
@@ -59,3 +60,14 @@ User/settings.json
 User/globalStorage/
 *.DS_Store
 Thumbs.db
+CachedProfilesData
+Cache/
+CachedData/
+Code Cache/
+Crashpad/
+DawnGraphiteCache/
+DawnWebGPUCache/
+Dictionaries/
+GPUCache/
+Local Storage/
+Shared*

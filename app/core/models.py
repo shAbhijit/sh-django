@@ -1,7 +1,7 @@
 """
-Dabase models for the application.
+Database models for the application.
 """
-
+from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import (
     AbstractBaseUser,
@@ -43,7 +43,24 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
-    # REQUIRED_FIELDS = ['name']
 
     def __str__(self):
-        return self.email
+        return str(self.email)
+
+
+class Organization(models.Model):
+    """Organization model."""
+    name = models.CharField(max_length=255)
+    owner = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+    )
+    description = models.TextField(blank=True)
+    email = models.EmailField()
+    is_parent = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=False, null=True)
+
+    def __str__(self):
+        return f"Organization(name={self.name}, email={self.email})"

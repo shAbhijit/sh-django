@@ -36,4 +36,8 @@ urlpatterns = [
         'api/user/',
         include('user.urls')
     ),
+    path(
+        'api/organizations/',
+        include('organizations.urls')
+    )
 ]

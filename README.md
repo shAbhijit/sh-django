@@ -37,6 +37,7 @@ docker-compose run --rm app sh -c "flake8"
 ```bash
 docker-compose run --rm app sh -c "python manage.py startapp core"
 docker-compose run --rm app sh -c "python manage.py startapp user"
+docker-compose run --rm app sh -c "python manage.py startapp organizations"
 ```
 
 ### Database Commands
@@ -70,6 +71,10 @@ docker-compose run --rm app sh -c "python manage.py createsuperuser"
 docker-compose up
 ```
 
+### Show URLS
+```bash
+docker-compose run --rm app sh -c "python manage.py show_urls"
+```
 ---
 
 ## Development

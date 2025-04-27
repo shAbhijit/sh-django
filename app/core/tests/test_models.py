@@ -1,10 +1,9 @@
 """
 Tests for the models
 """
-
-
 from django.test import TestCase
 from django.contrib.auth import get_user_model
+from core import models
 
 
 class ModelTests(TestCase):
@@ -48,3 +47,22 @@ class ModelTests(TestCase):
         self.assertTrue(user.is_superuser)
         self.assertTrue(user.is_staff)
         self.assertTrue(user.is_active)
+
+    def test_create_organization(self):
+        """Test creating an organization."""
+        user = get_user_model().objects.create_user(
+            'test@example.com',
+            'test123',
+        )
+        organization = models.Organization.objects.create(
+            name='Test Organization',
+            owner=user,
+            description='A test organization',
+            email='org@example.com',
+            is_parent=True,
+            is_active=True,
+        )
+        self.assertEqual(
+            str(organization),
+            f'Organization(name={organization.name}, email={organization.email})'
+        )
