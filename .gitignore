@@ -1,0 +1,61 @@
+# Byte-compiled / optimized / DLL files
+*.py[cod]
+*.pyo
+*.pyd
+__pycache__/
+*.so
+
+# Virtual environment
+.venv/
+venv/
+env/
+ENV/
+*.env
+
+# Django stuff
+db.sqlite3
+*.sqlite3
+*.log
+*.pot
+*.pyc
+media/
+staticfiles/
+static/
+
+
+# Testing
+.coverage
+.tox/
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+
+# Docker
+.docker
+.dockerignore
+
+# Git
+.git
+
+# System and IDE-specific files
+machineid
+code.lock
+languagepacks.json
+Trust Tokens
+Trust Tokens-journal
+TransportSecurity
+Preferences
+Network Persistent State
+User/workspaceStorage/
+User/settings.json
+User/globalStorage/
+*.DS_Store
+Thumbs.db
